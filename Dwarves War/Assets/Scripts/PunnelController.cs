@@ -1,9 +1,13 @@
 using System;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
+    [Header("New game button")]
+    public Button newGameButton;
     [Header("Setting button")]
     public GameObject panel1;
     public GameObject backgroundBlocker;
@@ -13,18 +17,25 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public AnimationClip closeAnimation; 
     private bool isOpen;
     private Animator animator;
-    //public Animator animationClose;
     [Header("Exit Button")]
     public Button exitGame;
     private void Start()
     {
+        //New game button
+        newGameButton.onClick.AddListener(newGame);
+        //Setting button
         animator = panel1.GetComponent<Animator>();
         openButton.onClick.AddListener(OpenPanel);
         closeButton.onClick.AddListener(ClosePanel);
+        //Exit Button
         exitGame.onClick.AddListener(ExitGame);
     }
 
-   private void OpenPanel()
+    private void newGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
+    private void OpenPanel()
     {
         panel1.SetActive(true);
         backgroundBlocker.SetActive(true);
@@ -36,7 +47,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
-   private void ClosePanel()
+    private void ClosePanel()
 {
     if (animator != null)
         {
@@ -49,7 +60,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     StartCoroutine(DisableAfterAnimation(animator));
 }
 
-private System.Collections.IEnumerator DisableAfterAnimation(Animator anim)
+    private System.Collections.IEnumerator DisableAfterAnimation(Animator anim)
 {
     // чекаємо поки анімація Close завершиться
     yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
