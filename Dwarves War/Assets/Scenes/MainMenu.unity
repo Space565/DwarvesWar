@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6dc9e619a1f8d42b52ec5cabc8d704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  newGameButton: {fileID: 472139586}
   panel1: {fileID: 1439372231}
   backgroundBlocker: {fileID: 1221276471}
   openButton: {fileID: 1395387449}
@@ -611,7 +612,7 @@ GameObject:
   - component: {fileID: 472139584}
   - component: {fileID: 472139586}
   m_Layer: 5
-  m_Name: Start
+  m_Name: New Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -838,6 +839,7 @@ GameObject:
   - component: {fileID: 566343810}
   - component: {fileID: 566343812}
   - component: {fileID: 566343811}
+  - component: {fileID: 566343813}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -964,6 +966,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566343809}
   m_CullTransparentMesh: 1
+--- !u!114 &566343813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566343809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00c75fdfdd88544c8434756944134d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanguageText
+  language: 0
+  text:
+  - Close
+  - "\u0417\u0430\u043A\u0440\u044B\u0442\u044C"
 --- !u!1 &625956082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,7 +1168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5, y: -0.5}
+  m_AnchoredPosition: {x: -7.4999924, y: -0.4999981}
   m_SizeDelta: {x: -35, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &725622920
@@ -1572,6 +1590,7 @@ GameObject:
   - component: {fileID: 1111032813}
   - component: {fileID: 1111032815}
   - component: {fileID: 1111032814}
+  - component: {fileID: 1111032816}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1698,6 +1717,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111032812}
   m_CullTransparentMesh: 1
+--- !u!114 &1111032816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111032812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00c75fdfdd88544c8434756944134d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanguageText
+  language: 0
+  text:
+  - Settings
+  - "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
 --- !u!1 &1137040145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,6 +1744,7 @@ GameObject:
   - component: {fileID: 1137040146}
   - component: {fileID: 1137040148}
   - component: {fileID: 1137040147}
+  - component: {fileID: 1137040149}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1835,6 +1871,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137040145}
   m_CullTransparentMesh: 1
+--- !u!114 &1137040149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137040145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00c75fdfdd88544c8434756944134d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanguageText
+  language: 0
+  text:
+  - Exit
+  - "\u0412\u044B\u0445\u043E\u0434"
 --- !u!1 &1221276471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,6 +1973,7 @@ GameObject:
   - component: {fileID: 1316951123}
   - component: {fileID: 1316951125}
   - component: {fileID: 1316951124}
+  - component: {fileID: 1316951126}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2047,6 +2100,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316951122}
   m_CullTransparentMesh: 1
+--- !u!114 &1316951126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316951122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00c75fdfdd88544c8434756944134d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanguageText
+  language: 0
+  text:
+  - New game
+  - "\u041D\u043E\u0432\u0430\u044F \u0438\u0433\u0440\u0430"
 --- !u!1 &1395387445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,8 +2906,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 449.8, y: 268.3}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 490, y: 273}
+  m_SizeDelta: {x: 103.4665, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1886964768
 MonoBehaviour:
@@ -3048,12 +3117,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
