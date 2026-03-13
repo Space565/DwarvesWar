@@ -6669,8 +6669,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 04c976d798a25ec45886a06b06d72c63, type: 2}
-  m_sharedMaterial: {fileID: -6395143518902619644, guid: 04c976d798a25ec45886a06b06d72c63, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 39defa6a0ee8584488373eced2ea90da, type: 2}
+  m_sharedMaterial: {fileID: 7037509045463576002, guid: 39defa6a0ee8584488373eced2ea90da, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
