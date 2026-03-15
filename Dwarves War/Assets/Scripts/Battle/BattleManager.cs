@@ -2,107 +2,104 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections;
+using NUnit.Framework;
+using Unity.VisualScripting;
+using NUnit.Framework.Constraints;
 
 public class BattleManager : MonoBehaviour
 {
-    public Transform[] dwarfPositions;
-    public Transform[] enemyPositions;
-    public List<Dwarf> dwarfs = new List<Dwarf>();
-    public List<Enemy> enemies = new List<Enemy>();
+    [SerializeField] private BattleUnitManager unitManager;
+    [SerializeField] private BattleUIManager battleUIManager;
+
     private List<Unit> turnQueue = new List<Unit>();
 
-
+    private enum BattleStage
+    {
+        None,
+        ChooseSkill,
+        ChooseTarget,
+        EnemyAttack
+    }
+    private BattleStage battleStage = BattleStage.None;
     private void Start()
     {
+        unitManager.SetupUnits();
         InitializeBattle();
         StartCoroutine(CombatSystem());
     }
 
-    void SetupUnits()
-    {
-       for (int i = 0; i < dwarfs.Count && i < dwarfPositions.Length; i++)
-    {
-        if(dwarfPositions[i] != null)
-        {
-            dwarfs[i].transform.position = dwarfPositions[i].position;
-            dwarfs[i].SetStartPosition();
-        }
-    }
-
-    for (int i = 0; i < enemies.Count && i < enemyPositions.Length; i++)
-    {
-        if(enemyPositions[i] != null)
-        {
-            enemies[i].transform.position = enemyPositions[i].position;
-            enemies[i].SetStartPosition();
-        }
-    }
-    }
-    
     private IEnumerator CombatSystem()
     {
-        SetupUnits();
-
-        while(dwarfs.Count > 0 && enemies.Count > 0)
+        while(unitManager.HasLivingDwarfs() && unitManager.HasLivingEnemies())
         {
-            foreach(Unit u in turnQueue)
+            switch(battleStage)
             {
-                if(!u.IsAlive())
-                    continue;
+                case BattleStage.None:
+                    foreach(Unit u in turnQueue)
+                    {
+                        if(u == null || !u.IsAlive())
+                            continue;
 
-                if(u is Dwarf dwarf)
-                    continue;
-                else if(u is Enemy enemy)
-                    yield return StartCoroutine(UnitTurnRoutine(enemy));
+                        if(u is Dwarf dwarf)
+                        continue;
+                            //yield return StartCoroutine(PlayerTurn(dwarf));
+                        else if(u is Enemy enemy)
+                            yield return StartCoroutine(UnitTurnRoutine(enemy));
 
-                RemoveDeadUnits();
+                        unitManager.CleanDeadUnits();
+                        u.TickCooldown();
+                    }
+                    break;
+                case BattleStage.ChooseSkill:
+                    break;
+                case BattleStage.ChooseTarget:
+                    break;
+                case BattleStage.EnemyAttack:
+                    break;
             }
+           
 
             InitializeBattle();
             yield return null;
         }
     }
 
-    private IEnumerator UnitTurnRoutine(Unit unit)
+//   IEnumerator PlayerTurn(Dwarf dwarf)
+//    {
+//        battleUIManager.ShowSkill(dwarf);
+//
+//        yield return new WaitUntil(() => battleUIManager.GetSelectedSkill() != null);
+//
+//        SkillState skill = battleUIManager.GetSelectedSkill();
+//
+//        // ТЕПЕР включаємо режим вибору ворога
+//        battleUIManager.EnableTargetSelection(unitManager.enemies);
+//
+//        yield return new WaitUntil(() => battleUIManager.GetSelectedTarget() != null);
+//
+//        Unit target = battleUIManager.GetSelectedTarget();
+//
+//        dwarf.TryToUseSkill(target, skill);
+//
+//        battleUIManager.ResetTarget();
+//
+//        yield return new WaitUntil(() => dwarf.IsIdle());
+//    }
+    private IEnumerator UnitTurnRoutine(Enemy enemy)
     {
-        Unit target = null;
-        if(unit is Dwarf d && enemies.Count > 0)
-            target = enemies[Random.Range(0, enemies.Count)];
-        else if(unit is Enemy e && dwarfs.Count > 0)
-            target = dwarfs[Random.Range(0, dwarfs.Count)];
+        bool didAttack = enemy.TryToAttack(unitManager.dwarfs);
+        if(!didAttack) yield break;
 
-        if(target == null)
-            yield break;
-
-        unit.StartAttack(target);
-
-        yield return new WaitUntil(() => unit.IsIdle());
+        yield return new WaitUntil(() => enemy.IsIdle());
     }
 
     //потім потрібно додати зберігання скорості атаки щоб лишня скорость атаки зберігалась 
-    public void InitializeBattle()
-    {   
+    private void InitializeBattle()
+    {
         turnQueue.Clear();
-
-        turnQueue.AddRange(dwarfs);
-        turnQueue.AddRange(enemies);
+        turnQueue.AddRange(unitManager.GetAllUnits());
 
         if(turnQueue.Count > 1)
             turnQueue.Sort((a,b) => b.GetAttackSpeed().CompareTo(a.GetAttackSpeed()));
-    }
-    
-    private void RemoveDeadUnits()
-    {
-        for(int i = dwarfs.Count - 1; i >= 0; i--)
-        {
-            if(!dwarfs[i].IsAlive())
-                dwarfs.RemoveAt(i);
-        }
-
-        for(int i = enemies.Count - 1; i >= 0; i--)
-        {
-            if(!enemies[i].IsAlive())
-                enemies.RemoveAt(i);
-        }
     }
 }

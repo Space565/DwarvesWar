@@ -1,0 +1,40 @@
+1 Assets
+	1.1 Animation
+		1.1.1 Dwarfs
+		1.1.2 Enemies
+			1.1.1.1 Sceleton
+	1.2 GameData
+		1.2.1 Localization: LocalizationDatabase.asset
+		1.2.2 Skills: BasicAttack.asset, Smash.asset
+		1.2.3 SkillSet: BasicSkills.asset
+	1.3 Prefabs
+		1.3.1 BattleUI: Skill 1 (префаб кнопки)
+		1.3.2 Enviroment (тут поки тільки префаб зображення різних об'єктів на карті)
+			1.3.2.1 Mushrooms 
+			1.3.2.2 Plants
+			1.3.2.3 Stones
+			1.3.2.4 Trees
+		1.3.3 Fonts (просто шрифти чисті які можна поставити)
+		1.3.4 Settings (збереженні налаштування для різних штук наприклад щоб одразу налаштувати текст ширина розмір і інше)
+		1.3.5 Unit (префаб скелета та дворфа)
+	1.4 Scenes (просто сцени)
+	1.5 Scripts
+		1.5.1 Battle: BattleManager.cs, BattleUnitManager.cs, SkillState.cs
+		1.5.2 Core
+			1.5.2.1 Unit: Unit.cs
+				1.5.2.1.1 Dwarfs: Dwarf.cs, DwarfVisual.cs
+				1.5.2.1.2 Enemis
+					1.5.2.1.2.1 Sceleton: Enemy.cs, SceletonVisual.cs
+		1.5.3 Skills: Scill.cs, SkillSet.cs
+		1.5.4 UI
+			1.5.4.1 BattleUI: BattleUIManager.cs
+			1.5.4.2 Fonts: FontsPoz.cs
+			1.5.4.3 LangSetting: LanguageText.cs, LocalizationDatabase.cs, LocalizationEntry.cs, SelectLang.cs
+			1.5.4.4 MainMenu: PunnelController
+	1.6 Sprites
+		1.6.1 Dwarfs (просто спрайти дварфа)
+		1.6.2 Enemies
+			1.6.2.1 Sceleton (Просто спрайти скилета)
+		1.6.3 MainMenu: Empty
+		1.6.4 Textures (просто текстури)
+	1.7 TileMap...

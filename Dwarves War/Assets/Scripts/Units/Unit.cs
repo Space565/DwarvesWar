@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Unit : MonoBehaviour
 {
@@ -9,10 +10,10 @@ public class Unit : MonoBehaviour
     [SerializeField] protected float _movingSpeed = 10f;
     [SerializeField] protected float _attackRange;
     
-    public UnitSkills unitSkills;
+    public SkillSet skillSet;
+    protected List<SkillState> _skillState = new List<SkillState>();
     protected bool _isAlive = true;
     protected bool _isRunning;
-
     protected Vector3 _startPos;
     private Vector3 _lastPosition;
 
@@ -26,10 +27,17 @@ public class Unit : MonoBehaviour
 
     protected UnitState _state = UnitState.Idle;
     protected Unit _target;
+    protected SkillState  _selectedSkill;
 
     protected virtual void Awake()
     {
         SetStartPosition();
+
+        //додаєм скіли у свойства скілів
+        foreach(var s in skillSet.GetSkills())
+        {
+            _skillState.Add(new SkillState(s));
+        }
     }
 
     private void Update()
@@ -50,7 +58,7 @@ public class Unit : MonoBehaviour
                 break;
 
             case UnitState.Attack:
-                    _target.TakeDamage(_damage);
+                    _target.TakeDamage(_damage, _selectedSkill);
                     _state = UnitState.Return;
 
                 break;
@@ -81,14 +89,15 @@ public class Unit : MonoBehaviour
 
         transform.localScale = scale;
     }
-    public void StartAttack(Unit target)
+    protected void StartAttack(Unit target, SkillState skill)
     {
+        _selectedSkill = skill;
         _target = target;
         _state = UnitState.MoveToTarget;
     }
-    protected virtual void TakeDamage(float damage)
+    protected virtual void TakeDamage(float damage, SkillState skill)
     {
-        _health -= damage;
+        _health -= damage + skill.skill.damage;
 
         if (_health <= 0.01f)
             Die();
@@ -154,5 +163,23 @@ public class Unit : MonoBehaviour
     public bool IsIdle()
     {
         return _state == UnitState.Idle;
+    }
+    public List<SkillState> GetRuntimeSkills()
+    {
+        return _skillState;
+    }
+    public bool TryToUseSkill(Unit target, SkillState state)
+    {
+        if(!state.IsReady())
+            return false;
+        
+        state.Use();
+        StartAttack(target, state);
+        return true;
+    }
+    public void TickCooldown()
+    {
+        foreach(var s in _skillState)
+            s.Tick();            
     }
 }

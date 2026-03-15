@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 5976647263706602452}
   - component: {fileID: 864172365069630610}
   m_Layer: 0
-  m_Name: Sceleton
+  m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,4 +215,4 @@ MonoBehaviour:
   _attackSpeed: 1
   _movingSpeed: 5
   _attackRange: 1
-  unitSkills: {fileID: 11400000, guid: b2732eb185c63a94b8fd6fd78085a6d4, type: 2}
+  skillSet: {fileID: 11400000, guid: b2732eb185c63a94b8fd6fd78085a6d4, type: 2}

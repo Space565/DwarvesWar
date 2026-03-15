@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SceletonVisual : MonoBehaviour
+public class SkeletonVisual : MonoBehaviour
 {
     private const string ISRUNNING = "isRunning";    
     private Animator _animator;
