@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SkeletonVisual : MonoBehaviour
+public class SkeletonVisual : MonoBehaviour, ITappable
 {
     private const string ISRUNNING = "isRunning";    
     private Animator _animator;
@@ -14,5 +14,10 @@ public class SkeletonVisual : MonoBehaviour
     void Update()
     {
         _animator.SetBool(ISRUNNING, _enemy.IsRunning());
+    }
+    public void OnTap()
+    {
+        BattleManager.Instance.TrySelectTarget(_enemy);
+        Debug.Log("Skeleton taped");
     }
 }

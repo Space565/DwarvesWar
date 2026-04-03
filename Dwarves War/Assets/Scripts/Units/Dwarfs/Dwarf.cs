@@ -15,11 +15,11 @@ public class Dwarf : Unit
         
     }
 
-    protected override void Die()
-    {
-        _isAlive = false;
-        gameObject.SetActive(false);
-    }
+    // protected override void Die()
+    // {
+    //     _isAlive = false;
+    //     gameObject.SetActive(false);
+    // }
    
 
 

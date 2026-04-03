@@ -34,9 +34,11 @@ public class BattleUIManager : MonoBehaviour
         currentUnit = unit;
         selectedSkill = null;
     
-        foreach (Transform child in attackPanel)
-            Destroy(child.gameObject);
-
+        for (int i = attackPanel.childCount - 1; i >= 0; i--)
+        {
+            Destroy(attackPanel.GetChild(i).gameObject);
+        }
+        
         float landslide = 0f;
         foreach (var skill in unit.GetRuntimeSkills())
         {
@@ -90,6 +92,10 @@ public class BattleUIManager : MonoBehaviour
         Debug.Log("Обрана атака: " + state.skill.localizationKey);
     }
 
+    public void SelectTarget(Enemy enemy)
+    {
+        
+    }
     public SkillState GetSelectedSkill()
     {
         return selectedSkill;

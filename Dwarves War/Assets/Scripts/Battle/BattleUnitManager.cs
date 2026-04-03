@@ -29,20 +29,6 @@ public class BattleUnitManager : MonoBehaviour
     public bool HasLivingDwarfs() => dwarfs.Count > 0;
     public bool HasLivingEnemies() => enemies.Count > 0;
 
-    public Unit GetRandomAliveEnemy()
-    {
-        CleanDeadUnits();
-        if (enemies.Count == 0) return null;
-        return enemies[Random.Range(0, enemies.Count)];
-    }
-
-    public Unit GetRandomAliveDwarf()
-    {
-        CleanDeadUnits();
-        if (dwarfs.Count == 0) return null;
-        return dwarfs[Random.Range(0, dwarfs.Count)];
-    }
-
     // ------------------ Налаштування позицій ------------------
     public void SetupUnits()
     {

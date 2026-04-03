@@ -33,7 +33,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private void newGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Hub");
     }
     private void OpenPanel()
     {

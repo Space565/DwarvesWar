@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
     
     public SkillSet skillSet;
     protected List<SkillState> _skillState = new List<SkillState>();
-    protected bool _isAlive = true;
+    [SerializeField] protected bool _isAlive = true;
     protected bool _isRunning;
     protected Vector3 _startPos;
     private Vector3 _lastPosition;
@@ -31,7 +31,6 @@ public class Unit : MonoBehaviour
 
     protected virtual void Awake()
     {
-        SetStartPosition();
 
         //додаєм скіли у свойства скілів
         foreach(var s in skillSet.GetSkills())
@@ -170,8 +169,11 @@ public class Unit : MonoBehaviour
     }
     public bool TryToUseSkill(Unit target, SkillState state)
     {
+        if(target == null || !target.IsAlive())
+        return false;
+
         if(!state.IsReady())
-            return false;
+        return false;
         
         state.Use();
         StartAttack(target, state);
@@ -181,5 +183,35 @@ public class Unit : MonoBehaviour
     {
         foreach(var s in _skillState)
             s.Tick();            
+    }
+    public void PrintUnitData()
+    {
+        Debug.Log($"--- Unit Data: {name} ---");
+        Debug.Log($"Health: {_health}");
+        Debug.Log($"Damage: {_damage}");
+        Debug.Log($"Attack Speed: {_attackSpeed}");
+        Debug.Log($"Moving Speed: {_movingSpeed}");
+        Debug.Log($"Attack Range: {_attackRange}");
+        Debug.Log($"Is Alive: {_isAlive}");
+        Debug.Log($"Is Running: {_isRunning}");
+        Debug.Log($"State: {_state}");
+        Debug.Log($"Start Position: {_startPos}");
+        Debug.Log($"Current Position: {transform.position}");
+        Debug.Log($"Target: {(_target != null ? _target.name : "None")}");
+        Debug.Log($"Selected Skill: {(_selectedSkill != null ? _selectedSkill.skill.localizationKey : "None")}");
+
+        // Виводимо всі скіли
+        if(_skillState.Count > 0)
+        {
+            Debug.Log("Skills:");
+            foreach(var s in _skillState)
+            {
+                Debug.Log($" - {s.skill.name}, Cooldown: {s.currentCooldown}/{s.skill.cooldown}");
+            }
+        }
+        else
+        {
+            Debug.Log("Skills: None");
+        }
     }
 }
