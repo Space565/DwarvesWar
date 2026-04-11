@@ -2192,6 +2192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6dc9e619a1f8d42b52ec5cabc8d704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  loadGameButton: {fileID: 1840462273}
   newGameButton: {fileID: 472139586}
   panel1: {fileID: 1439372231}
   backgroundBlocker: {fileID: 1221276471}
@@ -4207,7 +4208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637897127320188158, guid: 6cea5660f3d2c8b41ae070dc5bab4e68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -972.75525
+      value: -972.06
       objectReference: {fileID: 0}
     - target: {fileID: 4637897127320188158, guid: 6cea5660f3d2c8b41ae070dc5bab4e68, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6462,11 +6463,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 659655233617201153, guid: cf9c3d65ce976a047860bcf7cc5dab4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -980.0556
+      value: -979.661
       objectReference: {fileID: 0}
     - target: {fileID: 659655233617201153, guid: cf9c3d65ce976a047860bcf7cc5dab4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -508.7845
+      value: -508.829
       objectReference: {fileID: 0}
     - target: {fileID: 659655233617201153, guid: cf9c3d65ce976a047860bcf7cc5dab4a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18569,11 +18570,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 659655233617201153, guid: cf9c3d65ce976a047860bcf7cc5dab4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -984.2571
+      value: -983.98
       objectReference: {fileID: 0}
     - target: {fileID: 659655233617201153, guid: cf9c3d65ce976a047860bcf7cc5dab4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -508.8161
+      value: -508.8
       objectReference: {fileID: 0}
     - target: {fileID: 659655233617201153, guid: cf9c3d65ce976a047860bcf7cc5dab4a, type: 3}
       propertyPath: m_LocalPosition.z

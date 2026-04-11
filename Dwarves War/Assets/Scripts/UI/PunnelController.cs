@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
+    [Header("Load game button")]
+    public Button loadGameButton;
     [Header("New game button")]
     public Button newGameButton;
     [Header("Setting button")]
@@ -21,6 +24,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public Button exitGame;
     private void Start()
     {
+        //Load game button
+        loadGameButton.onClick.AddListener(loadGame);
         //New game button
         newGameButton.onClick.AddListener(newGame);
         //Setting button
@@ -31,6 +36,21 @@ public class NewMonoBehaviourScript : MonoBehaviour
         exitGame.onClick.AddListener(ExitGame);
     }
 
+    private void loadGame()
+    {
+        loadGameButton.interactable = false;
+        StartCoroutine(LoadHubAndApplyData());
+    }
+
+    private IEnumerator LoadHubAndApplyData()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Hub",LoadSceneMode.Additive); 
+        while(!asyncLoad.isDone)
+            yield return null;
+        if(SaveLoadGame.Instance != null)
+            SaveLoadGame.Instance.Load();
+        SceneManager.UnloadSceneAsync("MainMenu");
+    }
     private void newGame()
     {
         SceneManager.LoadScene("Hub");
@@ -71,8 +91,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
+        SaveLoadGame.Instance.Save();
         #else
         Application.Quit();
+        SaveLoadGame.Instance.Save();
         #endif
     }
 }
