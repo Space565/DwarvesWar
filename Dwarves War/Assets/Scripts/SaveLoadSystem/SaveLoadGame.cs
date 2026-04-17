@@ -5,7 +5,7 @@ using UnityEngine;
 public class SaveLoadGame : MonoBehaviour
 {
     public static SaveLoadGame Instance;
-    private List<ISaveable> saveables = new List<ISaveable>();
+    private List<ISaveable> _saveables = new List<ISaveable>();
     private void Awake()
     {
         if (Instance == null)
@@ -14,13 +14,13 @@ public class SaveLoadGame : MonoBehaviour
 
     public void Register(ISaveable s)
     {
-        if(!saveables.Contains(s))
-            saveables.Add(s);
+        if(!_saveables.Contains(s))
+            _saveables.Add(s);
     }
     public void UnRegister(ISaveable s)
     {
-        if(saveables.Contains(s))
-            saveables.Remove(s);
+        if(_saveables.Contains(s))
+            _saveables.Remove(s);
     }
 
     public void Save()
@@ -28,7 +28,7 @@ public class SaveLoadGame : MonoBehaviour
         SaveData data = new SaveData();
         string path = Application.persistentDataPath + "/save.json";
 
-        foreach(var s in saveables)
+        foreach(var s in _saveables)
             s.SaveData(data);
 
         string json = JsonUtility.ToJson(data, true);
@@ -42,16 +42,16 @@ public class SaveLoadGame : MonoBehaviour
 
         string path = Application.persistentDataPath + "/save.json";
 
-    if (!File.Exists(path))
-    {
-        Debug.LogWarning("Файл збереження не знайдено!");
-        return;
-    }
-    string json = File.ReadAllText(path);
+        if (!File.Exists(path))
+        {
+            Debug.LogWarning("Файл збереження не знайдено!");
+            return;
+        }
+        string json = File.ReadAllText(path);
 
-    SaveData data = JsonUtility.FromJson<SaveData>(json);
+        SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-    foreach(var s in saveables)
-        s.LoadData(data);
+        foreach(var s in _saveables)
+            s.LoadData(data);
     }
 }
