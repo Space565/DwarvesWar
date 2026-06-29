@@ -226,7 +226,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.21875
+  orthographic size: 4.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -385,7 +385,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3479691987222698978}
-  - {fileID: 1383816068}
   - {fileID: 1194335034}
   - {fileID: 772798931}
   - {fileID: 552056380}
@@ -2038,12 +2037,12 @@ PrefabInstance:
     - target: {fileID: 4786718174804270170, guid: ec5ccf04b7fcbe343bf9fda0cd09c3e0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.1524658
+      value: 3.1520996
       objectReference: {fileID: 0}
     - target: {fileID: 4786718174804270170, guid: ec5ccf04b7fcbe343bf9fda0cd09c3e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.48080444
+      value: 0.44952393
       objectReference: {fileID: 0}
     - target: {fileID: 4786718174804270170, guid: ec5ccf04b7fcbe343bf9fda0cd09c3e0,
         type: 3}
@@ -2991,12 +2990,12 @@ PrefabInstance:
     - target: {fileID: 8032446780048720546, guid: fa8260a1c116dd94cbda97a510087491,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.99609375
+      value: 1.1520996
       objectReference: {fileID: 0}
     - target: {fileID: 8032446780048720546, guid: fa8260a1c116dd94cbda97a510087491,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.48077393
+      value: 0.44952393
       objectReference: {fileID: 0}
     - target: {fileID: 8032446780048720546, guid: fa8260a1c116dd94cbda97a510087491,
         type: 3}
@@ -3500,80 +3499,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4556883334484389269, guid: 26113783f49caed40a085643d13a1847,
     type: 3}
   m_PrefabInstance: {fileID: 1382081869}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1383816067
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 276050835}
-    m_Modifications:
-    - target: {fileID: 2531515087555753861, guid: 963998250e16b684ebf3ec7be462ce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: TX Props Wooden Gate Opened
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919587822172340064, guid: 963998250e16b684ebf3ec7be462ce0d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.5742188
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919587822172340064, guid: 963998250e16b684ebf3ec7be462ce0d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.48077393
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919587822172340064, guid: 963998250e16b684ebf3ec7be462ce0d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919587822172340064, guid: 963998250e16b684ebf3ec7be462ce0d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919587822172340064, guid: 963998250e16b684ebf3ec7be462ce0d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919587822172340064, guid: 963998250e16b684ebf3ec7be462ce0d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919587822172340064, guid: 963998250e16b684ebf3ec7be462ce0d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919587822172340064, guid: 963998250e16b684ebf3ec7be462ce0d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919587822172340064, guid: 963998250e16b684ebf3ec7be462ce0d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919587822172340064, guid: 963998250e16b684ebf3ec7be462ce0d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 963998250e16b684ebf3ec7be462ce0d, type: 3}
---- !u!4 &1383816068 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8919587822172340064, guid: 963998250e16b684ebf3ec7be462ce0d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1383816067}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1395387445
 GameObject:
@@ -12550,7 +12475,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -105541197
   m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1989590431
@@ -12947,6 +12872,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6312021781699437215, guid: 2b37773d1f2eeca4cb10e68512cd17b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8865515310699878461, guid: 2b37773d1f2eeca4cb10e68512cd17b7,
         type: 3}
